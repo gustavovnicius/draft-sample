@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore, compose, applyMiddleware } from 'redux'
 import reducers from 'reducers'
 import App from 'containers/App'
+import 'index.css'
 
 let store = createStore(reducers)
 
