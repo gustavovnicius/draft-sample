@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
+import editor from 'reducers/editor'
 
 export default combineReducers({
-  reducer: f => ''
-  // Add more reducers here
+  editor
 })

@@ -1,0 +1,15 @@
+exports[`AppContainer renders 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "column",
+      "padding": "3vh 0",
+    }
+  }>
+  <div>
+     Hello! 
+  </div>
+</div>
+`;

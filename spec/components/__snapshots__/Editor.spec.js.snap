@@ -1,0 +1,16 @@
+exports[`Editor renders 1`] = `
+<div
+  onClick={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "boxShadow": "0px 0px 6px 1px rgba(0,0,0,0.18)",
+      "cursor": "text",
+      "margin": "0 0 2em 0",
+      "maxWidth": "55vw",
+      "minHeight": "50vh",
+      "minWidth": "55vw",
+      "padding": "2em",
+    }
+  } />
+`;

@@ -1,18 +1,19 @@
 import React from 'react'
-import { Button } from 'rebass'
+import { Provider } from 'react-redux'
+import { createStore, compose } from 'redux'
+import reducers from 'reducers'
+import AppContainer from 'components/AppContainer'
+import ConnectedEditor from 'containers/ConnectedEditor'
 
-function App() {
+const store = createStore(reducers)
+
+const App = () => {
   return (
-    <div>
-      <Button
-        backgroundColor="primary"
-        color="white"
-        inverted
-        rounded
-      >
-        Click me!
-      </Button>
-    </div>
+    <Provider store={store}>
+      <AppContainer>
+        <ConnectedEditor />
+      </AppContainer>
+    </Provider>
   )
 }
 
