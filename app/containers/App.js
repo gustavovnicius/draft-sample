@@ -1,11 +1,31 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { createStore, compose } from 'redux'
+import { ContentState, EditorState } from 'draft-js'
 import reducers from 'reducers'
 import AppContainer from 'components/AppContainer'
 import ConnectedEditor from 'containers/ConnectedEditor'
 
-const store = createStore(reducers)
+const content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                "Pellentesque commodo, nisi ut lacinia maximus, odio nunc " +
+                "euismod nunc, non porttitor augue velit et nibh. Donec " +
+                "finibus posuere ante id condimentum. Proin in scelerisque " +
+                "eros. Quisque sed aliquet enim. Pellentesque a nibh " +
+                "faucibus, ultricies turpis in, vehicula eros. Nam in tortor " +
+                "lobortis, vestibulum nulla sit amet, vehicula nibh. Etiam " +
+                "congue venenatis magna eget egestas."
+
+const store = createStore(
+  reducers,
+  {
+    editor: {
+      state: EditorState.createWithContent(
+        ContentState.createFromText(content)
+      ),
+      readOnly: true
+    }
+  }
+)
 
 const App = () => {
   return (

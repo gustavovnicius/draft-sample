@@ -21,6 +21,7 @@ class Editor extends Component {
         <Draft.Editor
           ref={editor => this.editor = editor}
           editorState={this.props.editorState}
+          readOnly={this.props.readOnly}
           onChange={f => f}
         />
       </div>

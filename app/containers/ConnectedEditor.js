@@ -4,7 +4,8 @@ import Editor from 'components/Editor'
 
 const mapStateToProps = (state) => {
   return {
-    editorState: state.editor
+    editorState: state.editor.state,
+    readOnly: state.editor.readOnly
   }
 }
 

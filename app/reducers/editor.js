@@ -1,6 +1,11 @@
 import { EditorState } from 'draft-js'
 
-function editor(state = EditorState.createEmpty(), action) {
+const initialState = {
+  state: EditorState.createEmpty(),
+  readOnly: false
+}
+
+function editor(state = initialState, action) {
   switch (action.type) {
     default:
       return state
