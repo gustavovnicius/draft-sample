@@ -1,0 +1,31 @@
+exports[`App renders 1`] = `
+<div>
+  <button
+    className="Button"
+    href={undefined}
+    style={
+      Object {
+        "backgroundColor": "#08e",
+        "border": 0,
+        "borderRadius": 2,
+        "boxSizing": "border-box",
+        "color": "#fff",
+        "cursor": "pointer",
+        "display": "inline-block",
+        "fontFamily": "inherit",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "lineHeight": "16px",
+        "margin": 0,
+        "minHeight": 32,
+        "paddingBottom": 8,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 8,
+        "textDecoration": "none",
+      }
+    }>
+    Click me!
+  </button>
+</div>
+`;
