@@ -1,6 +1,8 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import App from 'containers/App.js'
+import App from 'containers/App'
+jest.mock('draft-js')
+jest.mock('draft-js-plugins-editor')
 
 describe('App', () => {
   it('renders', () => {

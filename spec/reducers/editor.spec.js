@@ -11,4 +11,14 @@ describe('editor reducer', () => {
 
     expect(editor(undefined, dummyAction)).toEqual(expected)
   })
+
+  it('accepts a SET_STATE action', () => {
+    const setStateAction = { type: 'SET_STATE', editorState: 'a state' }
+    const expected = {
+      state: 'a state',
+      readOnly: false
+    }
+
+    expect(editor(undefined, setStateAction)).toEqual(expected)
+  })
 })

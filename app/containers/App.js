@@ -22,7 +22,7 @@ const store = createStore(
       state: EditorState.createWithContent(
         ContentState.createFromText(content)
       ),
-      readOnly: true
+      readOnly: false
     }
   }
 )

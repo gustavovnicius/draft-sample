@@ -1,0 +1,5 @@
+exports[`Toolbar decorated component matches the snapshot 1`] = `
+<div
+  className="draftJsToolbar__toolbar__dNtBH"
+  style={undefined} />
+`;
