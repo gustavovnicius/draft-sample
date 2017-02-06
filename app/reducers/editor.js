@@ -1,4 +1,4 @@
-import { EditorState } from 'draft-js'
+import { EditorState, convertToRaw } from 'draft-js'
 import * as editorActions from 'actions/editor'
 
 const initialState = {
@@ -11,7 +11,8 @@ function editor(state = initialState, action) {
     case editorActions.SET_STATE:
       return {
         ...state,
-        state: action.editorState
+        state: action.editorState,
+        entities: convertToRaw(action.editorState.getCurrentContent()).entityMap
       }
     default:
       return state

@@ -13,10 +13,14 @@ describe('editor reducer', () => {
   })
 
   it('accepts a SET_STATE action', () => {
-    const setStateAction = { type: 'SET_STATE', editorState: 'a state' }
+    const setStateAction = {
+      type: 'SET_STATE',
+      editorState: EditorState.createEmpty()
+    }
     const expected = {
-      state: 'a state',
-      readOnly: false
+      state: expect.any(EditorState),
+      readOnly: false,
+      entities: {}
     }
 
     expect(editor(undefined, setStateAction)).toEqual(expected)

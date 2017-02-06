@@ -4,6 +4,7 @@ import { createStore, compose } from 'redux'
 import { ContentState, EditorState } from 'draft-js'
 import reducers from 'reducers'
 import AppContainer from 'components/AppContainer'
+import ConnectedCommentsList from 'containers/ConnectedCommentsList'
 import ConnectedEditor from 'containers/ConnectedEditor'
 
 const content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
@@ -32,6 +33,7 @@ const App = () => {
     <Provider store={store}>
       <AppContainer>
         <ConnectedEditor />
+        <ConnectedCommentsList />
       </AppContainer>
     </Provider>
   )
