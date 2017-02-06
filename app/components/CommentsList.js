@@ -9,20 +9,24 @@ const styles = {
     boxShadow: '0px 0px 6px 1px rgba(0,0,0,0.18)',
     minHeight: '5vh',
     minWidth: '55vw',
-  },
-  list: {
-
   }
 }
 
-const CommentsList = ({comments}) => {
+const CommentsList = ({comments, onSaveComment, onRemoveComment}) => {
   return (
     <div style={styles.comments}>
       <h3>Comments</h3>
-      <div style={styles.list}>
+      <div>
         {
           _.map(comments, (comment, key) => {
-            return <Comment key={key} comment={comment} />
+            return (
+              <Comment
+                key={key}
+                comment={comment}
+                onSaveComment={onSaveComment}
+                onRemoveComment={onRemoveComment}
+              />
+            )
           })
         }
       </div>

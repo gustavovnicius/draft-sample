@@ -9,4 +9,26 @@ describe('editor actions', () => {
 
     expect(editorActions.setState('a state')).toEqual(expected)
   })
+
+  it('creates an saveComment action', () => {
+    const commentData = {
+      saved: true,
+      comment: 'A comment'
+    }
+    const expected = {
+      type: editorActions.SAVE_COMMENT,
+      commentData
+    }
+
+    expect(editorActions.saveComment(commentData)).toEqual(expected)
+  })
+
+  it('creates an removeComment action', () => {
+    const expected = {
+      type: editorActions.REMOVE_COMMENT,
+      commentKey: '1'
+    }
+
+    expect(editorActions.removeComment('1')).toEqual(expected)
+  })
 })

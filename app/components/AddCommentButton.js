@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { RichUtils, EditorState } from 'draft-js'
+import { RichUtils, EditorState, Modifier } from 'draft-js'
 
 
 class AddCommentButton extends Component {
@@ -14,19 +14,18 @@ class AddCommentButton extends Component {
       }
     )
     const entityKey = contentStateWithEntity.getLastCreatedEntityKey()
+    const newContentStateWithEntity = contentStateWithEntity.mergeEntityData(entityKey, { key: entityKey })
     const newEditorState = EditorState.push(
       this.props.editorState,
-      contentStateWithEntity,
+      Modifier.applyEntity(
+        newContentStateWithEntity,
+        this.props.editorState.getSelection(),
+        entityKey
+      ),
       'apply-entity'
     )
 
-    this.props.setEditorState(
-      RichUtils.toggleLink(
-        newEditorState,
-        newEditorState.getSelection(),
-        entityKey
-      )
-    )
+    this.props.setEditorState(newEditorState)
   }
 
   render() {

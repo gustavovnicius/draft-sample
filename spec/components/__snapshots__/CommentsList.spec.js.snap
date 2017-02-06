@@ -12,104 +12,127 @@ exports[`CommentsList renders 1`] = `
   <h3>
     Comments
   </h3>
-  <div
-    style={Object {}}>
-    <div>
-      <form
-        className="InlineForm"
+  <div>
+    <div
+      style={
+        Object {
+          "margin": "2em",
+        }
+      }>
+      <div
+        className="Input"
         style={
           Object {
-            "alignItems": "center",
             "boxSizing": "border-box",
-            "display": "flex",
+            "color": null,
+            "marginBottom": 16,
           }
         }>
-        <div
-          className="Input"
+        <label
+          className="Label"
+          htmlFor="comment"
           style={
             Object {
               "boxSizing": "border-box",
-              "color": null,
-              "flex": "1 1 auto",
-              "marginBottom": 0,
-            }
-          }>
-          <label
-            className="Label"
-            htmlFor="comment"
-            style={
-              Object {
-                "boxSizing": "border-box",
-                "clip": "rect(1px, 1px, 1px, 1px)",
-                "fontSize": 14,
-                "fontWeight": 600,
-                "height": 1,
-                "lineHeight": 1,
-                "overflow": "hidden",
-                "position": "absolute",
-                "width": 1,
-              }
-            }>
-            Write a comment
-          </label>
-          <input
-            name="comment"
-            onChange={[Function]}
-            placeholder="Write a comment"
-            style={
-              Object {
-                "backgroundColor": "rgba(255, 255, 255, .25)",
-                "borderColor": "rgba(0, 0, 0, .25)",
-                "borderRadius": "2px 0 0 2px",
-                "borderStyle": "solid",
-                "borderWidth": 1,
-                "boxSizing": "border-box",
-                "color": "inherit",
-                "display": "block",
-                "fontFamily": "inherit",
-                "fontSize": "inherit",
-                "height": 32,
-                "margin": 0,
-                "paddingLeft": 8,
-                "paddingRight": 8,
-                "width": "100%",
-              }
-            }
-            type="text"
-            value={undefined} />
-        </div>
-        <button
-          className="ButtonOutline"
-          href={undefined}
-          onClick={[Function]}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "border": 0,
-              "borderRadius": "0 2px 2px 0",
-              "boxShadow": "inset 0 0 0 1px",
-              "boxSizing": "border-box",
-              "color": "#08e",
-              "cursor": "pointer",
-              "display": "inline-block",
-              "fontFamily": "inherit",
               "fontSize": 14,
               "fontWeight": 600,
-              "lineHeight": "16px",
+              "lineHeight": 1,
+            }
+          }>
+          
+        </label>
+        <input
+          name="comment"
+          onChange={[Function]}
+          placeholder="Write a comment"
+          style={
+            Object {
+              "backgroundColor": "rgba(255, 255, 255, .25)",
+              "borderColor": "rgba(0, 0, 0, .25)",
+              "borderRadius": 2,
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "boxSizing": "border-box",
+              "color": "inherit",
+              "display": "block",
+              "fontFamily": "inherit",
+              "fontSize": "inherit",
+              "height": 32,
               "margin": 0,
-              "marginLeft": -1,
-              "minHeight": 32,
-              "paddingBottom": 8,
-              "paddingLeft": 16,
-              "paddingRight": 16,
-              "paddingTop": 8,
-              "textDecoration": "none",
+              "paddingLeft": 8,
+              "paddingRight": 8,
+              "width": "100%",
             }
           }
-          type="submit">
-          Save
-        </button>
-      </form>
+          type="text"
+          value="" />
+      </div>
+      <button
+        className="Button"
+        href={undefined}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#08e",
+            "border": 0,
+            "borderRadius": 2,
+            "boxSizing": "border-box",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "inline-block",
+            "fontFamily": "inherit",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": "16px",
+            "margin": 0,
+            "minHeight": 32,
+            "paddingBottom": 8,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 8,
+            "textDecoration": "none",
+          }
+        }>
+        Save
+      </button>
+      <div
+        className="Space"
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "inline-block",
+            "flex": null,
+            "width": 8,
+          }
+        } />
+      <button
+        className="Button"
+        href={undefined}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#888",
+            "border": 0,
+            "borderRadius": 2,
+            "boxSizing": "border-box",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "inline-block",
+            "fontFamily": "inherit",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": "16px",
+            "margin": 0,
+            "minHeight": 32,
+            "paddingBottom": 8,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 8,
+            "textDecoration": "none",
+          }
+        }>
+        Remove
+      </button>
     </div>
   </div>
 </div>

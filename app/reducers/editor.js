@@ -1,4 +1,9 @@
-import { EditorState, convertToRaw } from 'draft-js'
+import {
+  EditorState,
+  convertToRaw,
+  getEntitySelectionState,
+  Modifier
+} from 'draft-js'
 import * as editorActions from 'actions/editor'
 
 const initialState = {
@@ -13,6 +18,20 @@ function editor(state = initialState, action) {
         ...state,
         state: action.editorState,
         entities: convertToRaw(action.editorState.getCurrentContent()).entityMap
+      }
+    case editorActions.SAVE_COMMENT:
+      const contentState = state.state.getCurrentContent()
+      const newContentState = contentState.mergeEntityData(action.commentData.key, action.commentData)
+      const newEditorState = EditorState.push(
+        state.state,
+        newContentState,
+        'apply-entity'
+      )
+
+      return {
+        ...state,
+        state: newEditorState,
+        entities: convertToRaw(newEditorState.getCurrentContent()).entityMap
       }
     default:
       return state
