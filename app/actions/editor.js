@@ -16,9 +16,9 @@ export const saveComment = (commentData) => {
   }
 }
 
-export const removeComment = (commentKey) => {
+export const removeComment = (commentData) => {
   return {
     type: REMOVE_COMMENT,
-    commentKey
+    commentData
   }
 }

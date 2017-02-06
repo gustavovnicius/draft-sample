@@ -24,11 +24,15 @@ describe('editor actions', () => {
   })
 
   it('creates an removeComment action', () => {
+    const commentData = {
+      saved: true,
+      comment: 'A comment'
+    }
     const expected = {
       type: editorActions.REMOVE_COMMENT,
-      commentKey: '1'
+      commentData
     }
 
-    expect(editorActions.removeComment('1')).toEqual(expected)
+    expect(editorActions.removeComment(commentData)).toEqual(expected)
   })
 })

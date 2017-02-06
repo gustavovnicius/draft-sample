@@ -7,10 +7,11 @@ class AddCommentButton extends Component {
     const contentState = this.props.editorState.getCurrentContent()
     const contentStateWithEntity = contentState.createEntity(
       'COMMENT',
-      'MUTABLE',
+      'IMMUTABLE',
       {
         comment: '',
-        saved: false
+        saved: false,
+        selectionState: this.props.editorState.getSelection()
       }
     )
     const entityKey = contentStateWithEntity.getLastCreatedEntityKey()

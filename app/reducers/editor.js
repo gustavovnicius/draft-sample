@@ -13,28 +13,49 @@ const initialState = {
 
 function editor(state = initialState, action) {
   switch (action.type) {
-    case editorActions.SET_STATE:
-      return {
-        ...state,
-        state: action.editorState,
-        entities: convertToRaw(action.editorState.getCurrentContent()).entityMap
-      }
-    case editorActions.SAVE_COMMENT:
-      const contentState = state.state.getCurrentContent()
-      const newContentState = contentState.mergeEntityData(action.commentData.key, action.commentData)
-      const newEditorState = EditorState.push(
-        state.state,
-        newContentState,
-        'apply-entity'
-      )
+    case editorActions.SET_STATE: return setEditorState(state, action)
+    case editorActions.SAVE_COMMENT: return saveComment(state, action)
+    case editorActions.REMOVE_COMMENT: return removeComment(state, action)
+    default: return state
+  }
+}
 
-      return {
-        ...state,
-        state: newEditorState,
-        entities: convertToRaw(newEditorState.getCurrentContent()).entityMap
-      }
-    default:
-      return state
+function setEditorState(state, action) {
+  return {
+    ...state,
+    state: action.editorState,
+    entities: convertToRaw(action.editorState.getCurrentContent()).entityMap
+  }
+}
+
+function saveComment(state, action) {
+  let contentState = state.state.getCurrentContent()
+  let newContentState = contentState.mergeEntityData(action.commentData.key, action.commentData)
+  let newEditorState = EditorState.push(
+    state.state,
+    newContentState,
+    'apply-entity'
+  )
+
+  return {
+    ...state,
+    state: newEditorState,
+    entities: convertToRaw(newEditorState.getCurrentContent()).entityMap
+  }
+}
+
+function removeComment(state, action) {
+  let contentState = state.state.getCurrentContent()
+  let newContentState = Modifier.applyEntity(contentState, action.commentData.selectionState, null)
+  let newEditorState = EditorState.push(
+    state.state,
+    newContentState,
+    'apply-entity'
+  )
+  return {
+    ...state,
+    state: newEditorState,
+    entities: convertToRaw(newEditorState.getCurrentContent()).entityMap
   }
 }
 

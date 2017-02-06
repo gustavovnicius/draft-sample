@@ -39,7 +39,7 @@ class ConnectedEditor extends Component {
           ref={editor => this.editor = editor}
           editorState={this.props.editorState}
           plugins={[Toolbar]}
-          readOnly={false}
+          readOnly={this.props.readOnly}
           onChange={this.props.setState}
         />
         <Toolbar.InlineToolbar />
