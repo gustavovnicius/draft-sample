@@ -4,7 +4,7 @@ exports[`AddCommentButton renders 1`] = `
   onMouseDown={[Function]}>
   <button
     className=""
-    onClick={[Function]}
+    onClick={undefined}
     type="button">
     <svg
       height="24"

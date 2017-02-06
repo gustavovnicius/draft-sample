@@ -10,6 +10,14 @@ describe('editor actions', () => {
     expect(editorActions.setState('a state')).toEqual(expected)
   })
 
+  it('creates an addComment action', () => {
+    const expected = {
+      type: editorActions.ADD_COMMENT,
+    }
+
+    expect(editorActions.addComment()).toEqual(expected)
+  })
+
   it('creates an saveComment action', () => {
     const commentData = {
       saved: true,

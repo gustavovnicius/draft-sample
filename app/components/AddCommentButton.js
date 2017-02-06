@@ -3,32 +3,6 @@ import { RichUtils, EditorState, Modifier } from 'draft-js'
 
 
 class AddCommentButton extends Component {
-  addComment() {
-    const contentState = this.props.editorState.getCurrentContent()
-    const contentStateWithEntity = contentState.createEntity(
-      'COMMENT',
-      'IMMUTABLE',
-      {
-        comment: '',
-        saved: false,
-        selectionState: this.props.editorState.getSelection()
-      }
-    )
-    const entityKey = contentStateWithEntity.getLastCreatedEntityKey()
-    const newContentStateWithEntity = contentStateWithEntity.mergeEntityData(entityKey, { key: entityKey })
-    const newEditorState = EditorState.push(
-      this.props.editorState,
-      Modifier.applyEntity(
-        newContentStateWithEntity,
-        this.props.editorState.getSelection(),
-        entityKey
-      ),
-      'apply-entity'
-    )
-
-    this.props.setEditorState(newEditorState)
-  }
-
   render() {
     return (
       <div
@@ -37,7 +11,7 @@ class AddCommentButton extends Component {
       >
         <button
           className={this.props.theme.button}
-          onClick={() => this.addComment()}
+          onClick={this.props.addComment}
           type="button"
         >
           <svg height="24" viewBox="0 0 24 24" width="24">

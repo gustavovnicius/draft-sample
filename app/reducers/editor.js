@@ -14,6 +14,7 @@ const initialState = {
 function editor(state = initialState, action) {
   switch (action.type) {
     case editorActions.SET_STATE: return setEditorState(state, action)
+    case editorActions.ADD_COMMENT: return addComment(state)
     case editorActions.SAVE_COMMENT: return saveComment(state, action)
     case editorActions.REMOVE_COMMENT: return removeComment(state, action)
     default: return state
@@ -28,6 +29,32 @@ function setEditorState(state, action) {
   }
 }
 
+function addComment(state) {
+  const contentState = state.state.getCurrentContent()
+  const contentStateWithEntity = contentState.createEntity(
+    'COMMENT',
+    'IMMUTABLE',
+    {
+      comment: '',
+      saved: false,
+      selectionState: state.state.getSelection()
+    }
+  )
+  const entityKey = contentStateWithEntity.getLastCreatedEntityKey()
+  const newContentStateWithEntity = contentStateWithEntity.mergeEntityData(entityKey, { key: entityKey })
+  const newEditorState = EditorState.push(
+    state.state,
+    Modifier.applyEntity(
+      newContentStateWithEntity,
+      state.state.getSelection(),
+      entityKey
+    ),
+    'apply-entity'
+  )
+
+  return prepareStateWithEntities(state, newEditorState)
+}
+
 function saveComment(state, action) {
   let contentState = state.state.getCurrentContent()
   let newContentState = contentState.mergeEntityData(action.commentData.key, action.commentData)
@@ -37,11 +64,7 @@ function saveComment(state, action) {
     'apply-entity'
   )
 
-  return {
-    ...state,
-    state: newEditorState,
-    entities: convertToRaw(newEditorState.getCurrentContent()).entityMap
-  }
+  return prepareStateWithEntities(state, newEditorState)
 }
 
 function removeComment(state, action) {
@@ -52,8 +75,13 @@ function removeComment(state, action) {
     newContentState,
     'apply-entity'
   )
+
+  return prepareStateWithEntities(state, newEditorState)
+}
+
+function prepareStateWithEntities(oldState, newEditorState) {
   return {
-    ...state,
+    ...oldState,
     state: newEditorState,
     entities: convertToRaw(newEditorState.getCurrentContent()).entityMap
   }

@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setEditorState: (state) => dispatch(editorActions.setState(state))
+    setEditorState: (state) => dispatch(editorActions.setState(state)),
+    addComment: () => dispatch(editorActions.addComment())
   }
 }
 

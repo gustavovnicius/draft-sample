@@ -24,12 +24,12 @@ describe('AddCommentButton', () => {
       <AddCommentButton
         theme={{ buttonWrapper: '', button: '' }}
         editorState={EditorState.createEmpty()}
-        setEditorState={spy}
+        addComment={spy}
       />
     )
 
-    component.instance().addComment()
+    component.instance().props.addComment()
 
-    expect(spy).toBeCalledWith(expect.any(EditorState));
+    expect(spy).toBeCalled()
   })
 })
