@@ -7,8 +7,8 @@ var config = {
   entry: {
     app: path.resolve(__dirname, 'app/index.js'),
     vendor: [
-      'react', 'react-dom', 'redux', 'react-redux', 'redux-thunk', 'rebass',
-      'draft-js', 'draft-js-plugins'
+      'draft-js', 'draft-js-inline-toolbar-plugin', 'draft-js-plugins-editor',
+      'lodash', 'react', 'react-dom', 'react-redux', 'rebass', 'redux'
     ]
   },
   resolve:{
@@ -24,7 +24,7 @@ var config = {
       loader: 'babel-loader', // The module to load. "babel" is short for "babel-loader"
       exclude: [node_modules_dir]
     },{
-      test: /\.scss$/,
+      test: /\.s?css$/,
       loader: 'style-loader!css-loader!sass-loader'
     },{
       test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
