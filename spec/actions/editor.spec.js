@@ -10,6 +10,15 @@ describe('editor actions', () => {
     expect(editorActions.setState('a state')).toEqual(expected)
   })
 
+  it('creates an setCommentFocus action', () => {
+    const expected = {
+      type: editorActions.SET_COMMENT_FOCUS,
+      commentData: {}
+    }
+
+    expect(editorActions.setCommentFocus({})).toEqual(expected)
+  })
+
   it('creates an addComment action', () => {
     const expected = {
       type: editorActions.ADD_COMMENT,

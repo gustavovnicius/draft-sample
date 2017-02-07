@@ -4,6 +4,9 @@ import { Input, Button, Space } from 'rebass'
 const styles = {
   commentWrapper: {
     margin: '2em'
+  },
+  comment: {
+    cursor: 'pointer'
   }
 }
 
@@ -27,7 +30,9 @@ export default class Comment extends Component {
   renderSavedComment() {
     return (
       <div style={styles.commentWrapper}>
-        <span>{this.props.comment.data.comment}</span>
+        <span style={styles.comment} onClick={() => this.setCommentFocus()}>
+          {this.props.comment.data.comment}
+        </span>
         <Space x={2} />
         <Button theme='secondary' onClick={() => this.removeComment()}>
           Remove
@@ -68,5 +73,9 @@ export default class Comment extends Component {
 
   removeComment() {
     this.props.onRemoveComment(this.props.comment.data)
+  }
+
+  setCommentFocus() {
+    this.props.onSetCommentFocus(this.props.comment.data)
   }
 }

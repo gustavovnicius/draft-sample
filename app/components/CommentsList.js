@@ -12,7 +12,7 @@ const styles = {
   }
 }
 
-const CommentsList = ({comments, onSaveComment, onRemoveComment}) => {
+const CommentsList = ({comments, onSaveComment, onRemoveComment, onSetCommentFocus}) => {
   return (
     <div style={styles.comments}>
       <h3>Comments</h3>
@@ -25,6 +25,7 @@ const CommentsList = ({comments, onSaveComment, onRemoveComment}) => {
                 comment={comment}
                 onSaveComment={onSaveComment}
                 onRemoveComment={onRemoveComment}
+                onSetCommentFocus={onSetCommentFocus}
               />
             )
           })

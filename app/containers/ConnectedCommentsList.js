@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onSaveComment: (commentData) => dispatch(editorActions.saveComment(commentData)),
-    onRemoveComment: (commentKey) => dispatch(editorActions.removeComment(commentKey))
+    onRemoveComment: (commentKey) => dispatch(editorActions.removeComment(commentKey)),
+    onSetCommentFocus: (commentData) => dispatch(editorActions.setCommentFocus(commentData))
   }
 }
 
