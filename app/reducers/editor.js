@@ -5,6 +5,7 @@ import {
   Modifier
 } from 'draft-js'
 import * as editorActions from 'actions/editor'
+import decorator from 'plugins/decorator'
 
 const initialState = {
   state: EditorState.createEmpty(),
@@ -31,7 +32,13 @@ function setEditorState(state, action) {
 }
 
 function setCommentFocus(state, action) {
-  const newEditorState = EditorState.forceSelection(state.state, action.commentData.selectionState)
+  const newEditorState = EditorState.forceSelection(
+    state.state,
+    action.commentData.selectionState
+  )
+
+  // It's a bit ugly, I know. Still thinking about how to take this off of here
+  document.getElementById(`comment_${action.commentData.key}`).scrollIntoView()
 
   return prepareStateWithEntities(state, newEditorState)
 }
@@ -90,9 +97,13 @@ function removeComment(state, action) {
 function prepareStateWithEntities(oldState, newEditorState) {
   return {
     ...oldState,
-    state: newEditorState,
+    state: decorateState(newEditorState),
     entities: convertToRaw(newEditorState.getCurrentContent()).entityMap
   }
+}
+
+function decorateState(editorState) {
+  return EditorState.set(editorState, { decorator: decorator })
 }
 
 export default editor
