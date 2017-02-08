@@ -13,7 +13,7 @@ Getting started
 - Git clone this repo
 
 ```sh
-git clone git@github.com:gustavovnicius/react-redux-boilerplate.git
+git@github.com:gustavovnicius/draft-sample.git
 ```
 
 - [Install NVM](https://github.com/creationix/nvm#install-script) and a [pick](https://github.com/creationix/nvm#usage) a node version.
