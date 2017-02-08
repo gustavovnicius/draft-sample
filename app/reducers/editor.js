@@ -12,7 +12,7 @@ const initialState = {
   readOnly: false
 }
 
-function editor(state = initialState, action) {
+export default function editor(state = initialState, action) {
   switch (action.type) {
     case editorActions.SET_STATE: return setEditorState(state, action)
     case editorActions.SET_COMMENT_FOCUS: return setCommentFocus(state, action)
@@ -105,5 +105,3 @@ function prepareStateWithEntities(oldState, newEditorState) {
 function decorateState(editorState) {
   return EditorState.set(editorState, { decorator: decorator })
 }
-
-export default editor

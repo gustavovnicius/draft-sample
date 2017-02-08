@@ -16,17 +16,16 @@ const content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "lobortis, vestibulum nulla sit amet, vehicula nibh. Etiam " +
                 "congue venenatis magna eget egestas."
 
-const store = createStore(
-  reducers,
-  {
-    editor: {
-      state: EditorState.createWithContent(
-        ContentState.createFromText(content)
-      ),
-      readOnly: false
-    }
+const initialState = {
+  editor: {
+    state: EditorState.createWithContent(
+      ContentState.createFromText(content)
+    ),
+    readOnly: false
   }
-)
+}
+
+const store = createStore(reducers, initialState)
 
 const App = () => {
   return (

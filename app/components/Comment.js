@@ -68,6 +68,7 @@ export default class Comment extends Component {
       saved: true,
       comment: this.state.value
     })
+
     this.setState({ value: ''})
   }
 

@@ -1,7 +1,12 @@
 import { EditorState } from 'draft-js'
-import editor from 'reducers/editor';
+import editor, {
+  decorateState,
+  prepareStateWithEntities
+} from 'reducers/editor';
 
 describe('editor reducer', () => {
+  const emptyEditorState = EditorState.createEmpty()
+
   it('defines an editor state by default', () => {
     const dummyAction = { type: 'DUMMY' }
     const expected = {
@@ -15,7 +20,7 @@ describe('editor reducer', () => {
   it('accepts a SET_STATE action', () => {
     const setStateAction = {
       type: 'SET_STATE',
-      editorState: EditorState.createEmpty()
+      editorState: emptyEditorState
     }
     const expected = {
       state: expect.any(EditorState),

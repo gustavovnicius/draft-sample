@@ -1,32 +1,11 @@
-React / Redux Boilerplate
-=========================
-[![Build Status](https://travis-ci.org/gustavovnicius/react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/gustavovnicius/react-redux-boilerplate)
+Oneflow
+=======
 
-<a href='https://facebook.github.io/react/'><img src='https://facebook.github.io/react/img/logo.svg' height='60'></a> <a href='http://redux.js.org'><img src='https://raw.githubusercontent.com/reactjs/redux/master/logo/logo.png' height='60'></a>
+To create the app I used my own react/redux [boilerplate](https://github.com/gustavovnicius/react-redux-boilerplate). I started it from the principle that it should be simple and as much explicit as possible (because there is a lot of complicated boilerplates out there). There is some explanations about the tools and libs that I used on the boilerplate repo.
 
-Boilerplate for front-end apps with React and Redux. The goal is to provide a simple and functional boilerplate that you could bootstrap your project with. Enjoy it! :sunglasses: (Any feedback will be welcome!)
+On the [History](HISTORY.md) there is my assumptions and comments about the solution.
 
-Main tools
-----------
-
-- react: Lib for build UIs. Has its main concept based upon components
-
-- react-hmr: Hot reload for react components.
-
-- redux: State container. react-redux bindings already included, allow to easily share state between components.
-
-- redux-thunk: Middleware to dispatch async actions
-
-Another tools / patterns
-------------------------
-
-- webpack: Bundle and minify your app into a single .js (its a poor explanation, I'll improve it ;) ), integrates with babel (and has another loaders too, so you can write good ol' modular JS with it.
-
-- jest: Painless JavaScript test framework.
-
-- redux-logger: Logger middleware for easily debug your app.
-
-- babel: JS transpiler. With it you can rely upon ES6, ES7, Stage-0, JSX and a lot of other features. You can use the next generation JS today.
+You can check out the application [here](https://gustavo.keybase.pub/). I used the keybase.io file system to serve the application (just copied the files to my directory).
 
 Getting started
 ---------------
@@ -52,8 +31,6 @@ npm start
 
 Testing
 
-This repo has a small example test, just take a look at [it](https://github.com/gustavovnicius/react-redux-boilerplate/blob/master/spec/components/single.spec.js)
-
 To run your test suite:
 ```sh
 npm test
@@ -64,18 +41,8 @@ npm run test:watch
 Bundling for production
 
 ```sh
-npm run deploy
+npm run build:production
 ```
 
-It will generate an `index.html` file pointing to the bundled `.js` files inside `dist` dir. It will generate two `.js` files: One, `app.[hash].js` will be your application, the other one `vendor.[hash].js` will include all your vendors, for caching.
+It will generate an `index.html` file pointing to the bundled `.js` files inside `dist` dir. It will also generate two `.js` files: One, `app.[hash].js` will be your application, the other one `vendor.[hash].js` will include all your vendors, for caching.
 The bundled files will include a hash in their names for the purpose of cache busting.
-
-Contributing
-------------
-
-Feel free to open an issue, PR or reaching me if you have any questions.
-
-TODO
-----
-
-- Redux Saga

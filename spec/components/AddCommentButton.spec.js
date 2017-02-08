@@ -32,4 +32,21 @@ describe('AddCommentButton', () => {
 
     expect(spy).toBeCalled()
   })
+
+  it('prevents that clicks on the wrapper div bubbles up', () => {
+    const spy = jest.fn()
+    const event = {
+      preventDefault: spy
+    }
+    const component = shallow(
+      <AddCommentButton
+        theme={{ buttonWrapper: '', button: '' }}
+        editorState={EditorState.createEmpty()}
+      />
+    )
+
+    component.instance().preventBubblingUp(event)
+
+    expect(spy).toBeCalled()
+  })
 })

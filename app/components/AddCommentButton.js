@@ -3,11 +3,15 @@ import { RichUtils, EditorState, Modifier } from 'draft-js'
 
 
 class AddCommentButton extends Component {
+  preventBubblingUp(event) {
+    event.preventDefault()
+  }
+
   render() {
     return (
       <div
         className={this.props.theme.buttonWrapper}
-        onMouseDown={(event) => event.preventDefault()}
+        onMouseDown={this.preventBubblingUp}
       >
         <button
           className={this.props.theme.button}

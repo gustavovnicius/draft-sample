@@ -6,8 +6,8 @@ jest.mock('draft-js-plugins-editor')
 
 describe('App', () => {
   it('renders', () => {
-    const app = renderer.create(<App />);
+    const app = renderer.create(<App />)
 
     expect(app).toBeTruthy()
-  });
-});
+  })
+})

@@ -1,4 +1,61 @@
-exports[`Comment renders 1`] = `
+exports[`Comment saved matches the snapshot 1`] = `
+<div
+  style={
+    Object {
+      "margin": "2em",
+    }
+  }>
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }>
+    
+  </span>
+  <div
+    className="Space"
+    style={
+      Object {
+        "boxSizing": "border-box",
+        "display": "inline-block",
+        "flex": null,
+        "width": 16,
+      }
+    } />
+  <button
+    className="Button"
+    href={undefined}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#888",
+        "border": 0,
+        "borderRadius": 2,
+        "boxSizing": "border-box",
+        "color": "#fff",
+        "cursor": "pointer",
+        "display": "inline-block",
+        "fontFamily": "inherit",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "lineHeight": "16px",
+        "margin": 0,
+        "minHeight": 32,
+        "paddingBottom": 8,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 8,
+        "textDecoration": "none",
+      }
+    }>
+    Remove
+  </button>
+</div>
+`;
+
+exports[`Comment unsaved matches the snapshot 1`] = `
 <div
   style={
     Object {
